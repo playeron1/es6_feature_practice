@@ -1,7 +1,6 @@
-const name = "Krish";
-const numbers = [1, 2, 3, 4, 5];
-
-const doubledNumbers = numbers.map((number) => number * 2);
-
-console.log(`Hello, ${name}!`);
-console.log("Doubled numbers:", doubledNumbers);
+const students = [
+    {name:'Akash', age:15, marks:[60,70,80]},
+    {name:'Arav', age:16, marks:[70,80,90]},
+    {name: 'Raman', age:14, marks:[40,50,60]}
+];
+export default students;
