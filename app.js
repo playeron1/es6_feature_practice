@@ -1,23 +1,25 @@
 import students from "./index.js";
-console.log(JSON.stringify(students));
-let marks = students[0].marks;
-let total = marks.reduce((sum,current)=> sum+current,0);
-students.forEach(element => {
-    console.log(element);
-});
-console.log(total);
-let avg = total/marks.length;
-console.log(avg);
-function AverageCal(marks){
-    const total = marks.reduce((sum,curr)=>sum+curr,0);
-    return total/marks.length;
-}
-console.log(`Avg Marks for Akash: ${AverageCal(students[0].marks)}`);
-console.log(`Avg Marks for Stud2: ${AverageCal(students[1].marks)}`);
-console.log(`Avg Marks for Stud3: ${AverageCal(students[2].marks)}`);
 
-const results = students.map((student) => ({
-    ...student,
-    avg: AverageCal(student.marks)
-}));
+function AverageCal(marks) {
+    const total = marks.reduce((sum, curr) => sum + curr, 0);
+    return total / marks.length;
+}
+
+const results = students.map((student) => {
+
+    const avg = AverageCal(student.marks);
+
+    return {
+        ...student,
+        avg: avg,
+        status: avg >= 50 ? "Pass" : "Fail"
+    };
+});
+const passStuds = results.filter(r=> r.status==='Pass')
 console.log(results);
+console.log(passStuds);
+const topper = results.reduce((highest,current)=>{
+    return current.avg>highest.avg? current:highest
+})
+console.log(topper.name);
+
