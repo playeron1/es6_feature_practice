@@ -8,3 +8,5 @@ function getUser(){
         },2000);
     });
 }
+
+export default getUser

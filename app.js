@@ -1,5 +1,5 @@
 import students from "./index.js";
-
+import getUser from "./promise.js";
 function AverageCal(marks) {
     const total = marks.reduce((sum, curr) => sum + curr, 0);
     return total / marks.length;
@@ -23,3 +23,4 @@ const topper = results.reduce((highest,current)=>{
 })
 console.log(topper.name);
 
+console.log(getUser());
